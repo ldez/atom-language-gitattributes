@@ -7,7 +7,7 @@
 
 Adds syntax highlighting to 'gitattributes' files.
 
-**TODO** add screenshots.
+![language-gitattributes](https://cloud.githubusercontent.com/assets/5674651/14799249/dbd13918-0b3b-11e6-812f-980ec8c42581.png)
 
 
 ## Supported files
