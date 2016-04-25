@@ -1,4 +1,4 @@
-# Ignore files Package for Atom
+# Git Attributes files Package for Atom
 
 [![Atom Package](https://img.shields.io/apm/v/language-gitattributes.svg)](https://atom.io/packages/language-gitattributes)
 [![Atom Package Downloads](https://img.shields.io/apm/dm/language-gitattributes.svg)](https://atom.io/packages/language-gitattributes)
@@ -15,6 +15,7 @@ Adds syntax highlighting to 'gitattributes' files.
 - `.gitattributes` and `.git/info/attributes`
 - [references](https://git-scm.com/docs/gitattributes)
 
+
 ## Install
 
 Settings/Preferences > Install > Search for `language-gitattributes`
@@ -24,3 +25,8 @@ Or
 ```bash
 apm install language-gitattributes
 ```
+
+
+## Samples
+
+Samples are extracted from https://github.com/Danimoth/gitattributes.

@@ -1,0 +1,61 @@
+name: 'Git attributes'
+scopeName: 'source.git-attributes'
+fileTypes: [
+  'gitattributes'
+  '.git/info/attributes'
+]
+patterns: [
+    include: '#line'
+  ,
+    include: '#comment'
+]
+repository:
+  comment:
+    name: 'comment.line.git-attributes'
+    match: "^#.*$"
+  line:
+    name: 'simple.line.git-attributes'
+    match: '^([\\p{Word}\\*\-\\./]+)(([ |\\t]+([\\w\\-,=]+))+)$'
+    captures:
+      # pattern
+      1:
+        name: 'constant.pattern.git-attributes'
+        patterns: [
+          include: '#symbols'
+        ]
+      # attributes
+      2:
+        name: 'string.attributes.git-attributes'
+        patterns: [
+          include: '#attributes'
+        ]
+  attributes:
+    patterns: [
+        # negate attribute
+        name: 'markup.deleted.negate.attribute.git-attributes'
+        match: '(?<= |\\t)(-[\\w\\-]+((=)([\\S]+))?)'
+        captures:
+          3: name: 'punctuation.definition.seperator..attribute.git-attributes'
+          4: name: 'markup.italic.att'
+      ,
+        name: 'punctuation.definition.seperator.attribute.git-attributes'
+        match: '(?<= |\\t)([\\w\\-]+)(=)([\\S]+)'
+        captures:
+          # attribute key
+          1: name: 'string.key.attribute.git-attributes'
+          # equal symbol
+          2: name: 'punctuation.definition.seperator.attribute.git-attributes'
+          # attribute value
+          3: name: 'markup.italic.value.attribute.git-attributes'
+    ]
+  symbols:
+    patterns: [
+        name: 'constant.other.symbol.asterisk.git-attributes'
+        match: '\\*'
+      ,
+        name: 'support.type.directory.git-attributes'
+        match: '/'
+      ,
+        name: 'variable.character.escape.git-attributes'
+        match: '\\\\'
+    ]

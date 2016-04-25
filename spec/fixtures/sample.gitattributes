@@ -10,6 +10,5 @@ weirdchars.txt	text
 Documentation/git-merge.txt		conflict-marker-size=32
 *.jpg		-text -diff
 *.jpg		binary
-
-
-# MACRO: [attr]binary -diff -merge -text
+*.pbxproj binary -merge=union
+*.css     text eol=lf whitespace=blank-at-eol,-blank-at-eof,-space-before-tab,tab-in-indent,tabwidth=2
