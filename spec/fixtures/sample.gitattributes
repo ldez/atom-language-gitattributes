@@ -1,0 +1,15 @@
+*.txt		text
+*.vcproj		eol=crlf
+*.sh		eol=lf
+*.jpg		-text
+*		text=auto
+weirdchars.txt	text
+*.c		filter=indent
+*.tex		diff=tex
+*.ps		-diff
+Documentation/git-merge.txt		conflict-marker-size=32
+*.jpg		-text -diff
+*.jpg		binary
+
+
+# MACRO: [attr]binary -diff -merge -text
