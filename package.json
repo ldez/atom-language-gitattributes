@@ -1,6 +1,6 @@
 {
   "name": "language-gitattributes",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Syntax highlighting for '.gitattributes' file.",
   "keywords": [
     "gitattribute",
