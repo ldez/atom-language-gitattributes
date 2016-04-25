@@ -1,0 +1,20 @@
+{
+  "name": "language-gitattributes",
+  "version": "0.0.1",
+  "description": "Syntax highlighting for '.gitattributes' file.",
+  "keywords": [
+    "gitattribute",
+    "git"
+  ],
+  "repository": "https://github.com/ldez/atom-language-gitattributes.git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "season": "^5.3"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.15.0"
+  }
+}
