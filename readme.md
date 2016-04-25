@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/ldez/atom-language-gitattributes.svg?branch=master)](https://travis-ci.org/ldez/atom-language-gitattributes)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/ldez/atom-language-gitattributes/blob/master/LICENSE.md)
 
-Adds syntax highlighting to 'gitattributes' files.
+Adds syntax highlighting to '.gitattributes' files.
 
 ![language-gitattributes](https://cloud.githubusercontent.com/assets/5674651/14799249/dbd13918-0b3b-11e6-812f-980ec8c42581.png)
 
