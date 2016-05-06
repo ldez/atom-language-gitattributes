@@ -3,6 +3,7 @@
 [![Atom Package](https://img.shields.io/apm/v/language-gitattributes.svg)](https://atom.io/packages/language-gitattributes)
 [![Atom Package Downloads](https://img.shields.io/apm/dm/language-gitattributes.svg)](https://atom.io/packages/language-gitattributes)
 [![Build Status](https://travis-ci.org/ldez/atom-language-gitattributes.svg?branch=master)](https://travis-ci.org/ldez/atom-language-gitattributes)
+[![Build status](https://ci.appveyor.com/api/projects/status/ihdjm0rm9mkxasl3?svg=true)](https://ci.appveyor.com/project/ldez/atom-language-gitattributes)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/ldez/atom-language-gitattributes/blob/master/LICENSE.md)
 
 Adds syntax highlighting to '.gitattributes' files.
