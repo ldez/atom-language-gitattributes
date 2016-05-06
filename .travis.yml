@@ -11,6 +11,13 @@ os:
   - linux
   - osx
 
+git:
+  depth: 10
+
+branches:
+  only:
+    - master
+
 env:
   matrix:
     - ATOM_CHANNEL=stable
