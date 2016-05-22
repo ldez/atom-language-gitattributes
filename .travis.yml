@@ -7,16 +7,16 @@ script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.
 
 sudo: false
 
-os:
-  - linux
-  - osx
-
 git:
   depth: 10
 
 branches:
   only:
     - master
+
+os:
+  - linux
+  - osx
 
 env:
   global:
@@ -33,3 +33,6 @@ addons:
     - git
     - libgnome-keyring-dev
     - fakeroot
+
+after_success:
+  - ./.travis/publish.sh
