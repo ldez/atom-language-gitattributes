@@ -1,0 +1,12 @@
+'.source.git-attributes':
+
+  'EOL LF':
+    description: 'End of line LF'
+    descriptionMoreURL: 'https://git-scm.com/docs/gitattributes'
+    prefix: 'lf'
+    body: 'eol=lf'
+  'EOL CRLF':
+    description: 'End of line CRLF'
+    descriptionMoreURL: 'https://git-scm.com/docs/gitattributes'
+    prefix: 'crlf'
+    body: 'eol=crlf'
