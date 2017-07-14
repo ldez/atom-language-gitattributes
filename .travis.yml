@@ -1,39 +1,89 @@
+### Project specific config ###
+language: generic
+
+env:
+  global:
+    - AUTHORIZED_BRANCH="master"
+    - APM_TEST_PACKAGES=""
+    - ATOM_LINT_WITH_BUNDLED_NODE="true"
+    - DISPLAY=:99.0
+
+  matrix:
+    - ATOM_CHANNEL=stable
+    # - ATOM_CHANNEL=beta
+
+os:
+  - linux
+  # - osx
+
+# before_install:
+# #   - dbus-launch --exit-with-session
+#   - export DISPLAY=:99.0
+#   # - sh -e /etc/init.d/xvfb start
+#   - /usr/bin/Xvfb :99 -screen 0 1280x1024x24 &
+
+# before_script:
+#   - "export DISPLAY=:99.0"
+  # - "sh -e /etc/init.d/xvfb start"
+  # - sleep 3 # give xvfb some time to start
+
+before_script:
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      dbus-launch /usr/bin/python -c \
+        "import gnomekeyring;gnomekeyring.create_sync('login', '');"
+    fi
+
+before_install:
+#   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+  # - xvfb-run ./.travis/unlock.sh
+
+after_success:
+  # - sudo chmod 0711 /usr/bin/gnome-keyring-daemon
+  # - sudo ps aux | grep keyring
+  # - export DISPLAY=:99.0
+  - echo "Unlocking the keyring..."
+  - eval $(echo -n "" | /usr/bin/gnome-keyring-daemon --login)
+  - "eval $(/usr/bin/gnome-keyring-daemon --components=secrets --start)"
+  - export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+  - sudo ./.travis/publish.sh
+  # - sh -e /etc/init.d/xvfb stop
+
+### Generic setup follows ###
+script:
+  - curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+  - chmod u+x build-package.sh
+  - ./build-package.sh
+
 notifications:
   email:
     on_success: never
     on_failure: change
 
-script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
-
-sudo: false
-
-git:
-  depth: 10
-
 branches:
   only:
     - master
 
-os:
-  - linux
-  - osx
+git:
+  depth: 10
 
-env:
-  global:
-    - APM_TEST_PACKAGES=""
-    - AUTHORIZED_BRANCH="master"
-
-  matrix:
-    - ATOM_CHANNEL=stable
-    - ATOM_CHANNEL=beta
+dist: trusty
+sudo: required
 
 addons:
   apt:
+    # sources:
+    # - ubuntu-toolchain-r-test
     packages:
     - build-essential
-    - git
-    - libgnome-keyring-dev
     - fakeroot
-
-after_success:
-  - ./.travis/publish.sh
+    - git
+    - libsecret-1-dev
+    - libx11-dev
+    - libxkbfile-dev
+    - libgnome-keyring-dev
+    - gnome-keyring
+    - python-gnomekeyring
+    # - g++-4.8
+    # - dbus
+    # - dbus-x11
