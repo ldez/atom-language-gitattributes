@@ -1,4 +1,4 @@
-name: 'Git attributes'
+name: 'Git Attributes'
 scopeName: 'source.git-attributes'
 fileTypes: [
   'gitattributes'
