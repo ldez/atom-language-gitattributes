@@ -3,7 +3,10 @@ notifications:
     on_success: never
     on_failure: change
 
-script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
+script:
+  - curl -s -O https://raw.githubusercontent.com/atom/ci/master/build-package.sh
+  - chmod u+x build-package.sh
+  - ./build-package.sh
 
 sudo: false
 
@@ -22,6 +25,7 @@ env:
   global:
     - APM_TEST_PACKAGES=""
     - AUTHORIZED_BRANCH="master"
+    - ATOM_LINT_WITH_BUNDLED_NODE="true"
 
   matrix:
     - ATOM_CHANNEL=stable
@@ -32,7 +36,7 @@ addons:
     packages:
     - build-essential
     - git
-    - libgnome-keyring-dev
+    - libsecret-1-dev
     - fakeroot
 
 after_success:
